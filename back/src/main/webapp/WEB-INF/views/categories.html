@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Фото просмотрщик</title>
+    <style>
+        .photo-strip {
+            display: flex;
+            overflow-x: auto;
+            max-width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .photo-strip img {
+            max-height: 100px;
+            max-width: 100px;
+            margin-right: 10px;
+        }
+
+        .edit-mode .photo-strip {
+            border: 2px dashed #4CAF50;
+        }
+
+        .edit-mode .add-photo,
+        .edit-mode .remove-photo {
+            display: block;
+        }
+
+        .add-photo,
+        .remove-photo {
+            display: none;
+            margin-right: 10px;
+        }
+
+        .photo-container {
+            position: relative;
+        }
+
+        .remove-photo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="viewer">
+        <div class="photo-strip" id="photoStrip">
+        
+        </div>
+        <div class="add-photo" onclick="addPhoto()">+ Добавить фото</div>
+        <button onclick="enableEditMode()">Изменить</button>
+        <button onclick="disableEditMode()">Отмена</button>
+        <button onclick="saveChanges()">Сохранить</button>
+    </div>
+
+<script>
+    let isEditMode = false;
+    let photoCount = 0;
+    const maxPhotos = 5;
+    let originalPhotos = [];
+
+    function initializePhotos() {
+        fetch('your-server-endpoint')
+            .then(response => response.json())
+            .then(data => {
+                const photoStrip = document.getElementById('photoStrip');
+                photoStrip.innerHTML = '';
+                photoCount = 0;
+                data.photos.forEach(photo => {
+                    addPhotoElement(photoStrip, photo);
+                });
+                originalPhotos = [...data.photos];
+            });
+    }
+
+    function addPhotoElement(photoStrip, photoSrc) {
+        const photoContainer = document.createElement('div');
+        photoContainer.classList.add('photo-container');
+
+        const img = document.createElement('img');
+        img.src = photoSrc;
+        photoContainer.appendChild(img);
+
+        const removeButton = document.createElement('button');
+        removeButton.classList.add('remove-photo');
+        removeButton.textContent = 'Удалить';
+        removeButton.onclick = function () {
+            photoStrip.removeChild(photoContainer);
+            photoCount--;
+        };
+        photoContainer.appendChild(removeButton);
+
+        photoStrip.appendChild(photoContainer);
+        photoCount++;
+    }
+
+    function enableEditMode() {
+        const viewer = document.getElementById('viewer');
+        isEditMode = true;
+        viewer.classList.add('edit-mode');
+    }
+
+    function disableEditMode() {
+        const viewer = document.getElementById('viewer');
+        isEditMode = false;
+        viewer.classList.remove('edit-mode');
+        cancelEdit(); // Возвращаемся к исходному состоянию
+    }
+
+    function addPhoto() {
+        if (photoCount >= maxPhotos) {
+            alert('Максимальное количество фотографий достигнуто');
+            return;
+        }
+
+        const photoStrip = document.getElementById('photoStrip');
+        const photoSrc = 'newPhoto.jpg'; // Замените на путь к новому фото
+        addPhotoElement(photoStrip, photoSrc);
+    }
+
+    function cancelEdit() {
+        const photoStrip = document.getElementById('photoStrip');
+        photoStrip.innerHTML = '';
+        photoCount = originalPhotos.lenght;
+        originalPhotos.forEach(photo => {
+            addPhotoElement(photoStrip, photo);
+        });
+    }
+
+    function saveChanges() {
+        const photoStrip = document.getElementById('photoStrip');
+        const photos = Array.from(photoStrip.querySelectorAll('img')).map(img => img.src);
+
+        fetch('your-server-endpoint', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ photos: photos })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            originalPhotos = photos; // Обновляем исходное состояние после сохранения
+            disableEditMode(); // Выключаем режим изменения после сохранения
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initializePhotos);
+</script>
+
+</body>
+</html>

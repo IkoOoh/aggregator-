@@ -1,0 +1,178 @@
+@charset "UTF-8";
+.top-bar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: right;
+}
+.Ad{
+	margin: auto;
+	width: 90%;
+}
+.account {
+    display: inline-block;
+    padding: 0 20px;
+}
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 1px solid black; 
+    border-radius: 15px; 
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: #808080; 
+    color: white;
+}
+.user-account {
+    display: inline-block;
+}
+
+.account-details {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 1px solid black; 
+    border-radius: 15px; 
+    text-decoration: none;
+}
+
+.username {
+    font-weight: bold;
+}
+.Heading{
+	margin-left: 2.5%;
+    font-size: 22px;
+    width: 96%;
+    text-decoration: none;
+    height: 20px;
+}
+
+.ChatField{
+    display:inline-block;
+    background-color: #4CAF50;
+    padding: 15px;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items : start;
+    margin: 20px;
+    align-self: start;
+}
+
+.DeleteField{
+    display:inline-block;
+    background-color: #4CAF50;
+    padding: 15px;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items : start;
+    margin: 20px;
+    align-self: start;
+}
+.ChatLinkStyle{
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 1px solid black; 
+    border-radius: 15px; 
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+.ChatLinkStyle:hover {
+    background-color: #808080; 
+    color: white;
+}
+.DeleteStyle {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 1px solid black; 
+    border-radius: 15px; 
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+.HideFieldStyle {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 1px solid black; 
+    border-radius: 15px; 
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+.HideFieldStyle:hover {
+    background-color: #808080; 
+    color: white;
+}
+.DeleteStyle:hover {
+    background-color: #808080; 
+    color: white;
+}
+.return-button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 1px solid black; 
+    border-radius: 15px; 
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+.edit-button{
+	display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 1px solid black; 
+    border-radius: 15px; 
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+.edit-button:hover {
+    background-color: #808080; 
+    color: white;
+}
+.editor-buttons{
+	display: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 1px solid black; 
+    border-radius: 15px; 
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+.editor-buttons:hover {
+    background-color: #808080; 
+    color: white;
+}
+.return-button:hover {
+    background-color: #808080; 
+    color: white;
+}
+.ReturnContainer{
+    display:inline-block;
+    background-color: #4CAF50;
+    padding: 15px;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items : start;
+    margin: 20px;
+    align-self: start;
+}

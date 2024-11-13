@@ -1,0 +1,100 @@
+@charset "UTF-8";
+.MediaField{
+    width: 90%;
+    background-color: #4CAF50;
+    padding: 5px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items : start;
+    margin: 20px;
+}
+.TitleField{
+	overflow-y: auto;
+    width: 90%;
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items : start;
+    margin: 20px;
+    height: 50px;
+}
+.TitleStyle{
+    margin-left: 2.5%;
+    font-size: 24px;
+    resize: none;
+    background: none;
+    border:none;
+    width: 80%;
+    height: 100%;
+}
+.TitleStyle:focus {
+    border-color: none; 
+    outline: none; 
+}
+.DescriptionField{
+	overflow-y: auto;
+    width: 90%;
+    background-color: #4CAF50;
+    padding: 5px;
+    border-radius: 15px;
+    flex-direction: column;
+    margin: 20px;
+    height: 300px;
+    padding: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.DescriptionStyle{
+    font-size: 16px;
+    resize: none;
+    background-color: white;
+    border-radius: 5px;
+    border:none;
+    width: 95%;
+    height: 90%;
+}
+.DescriptionStyle:focus {
+    border-color: none; 
+    outline: none; 
+}
+.Heading{
+	margin-left: 2.5%;
+    font-size: 22px;
+    width: 96%;
+    text-decoration: none;
+    height: 20px;
+}
+.TagsField{
+	overflow-y: auto;
+    width: 90%;
+    background-color: #4CAF50;
+    padding: 5px;
+    border-radius: 15px;
+    flex-direction: column;
+    margin: 20px;
+    height: 300px;
+    padding: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ContactsField{
+    width: 90%;
+    background-color: #4CAF50;
+    padding: 5px;
+    border-radius: 15px;
+    flex-direction: column;
+    margin: 20px; 
+    height: 200px;
+    padding: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
